@@ -1,0 +1,426 @@
+html{
+   scroll-behavior: smooth; 
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p{
+  font-size: 15px;
+}
+
+img{
+  width: 100%;
+}
+
+body{
+  /* font-family: "Source Sans Pro", "Hiragino Kaku Gothic ProN", Meiryo, Arial, sans-serif; */
+  font-family: "kokuryu", sans-serif;
+
+  /* 全体を中央寄せにする */
+  margin: 0 auto;
+  background-color: rgb(172, 37, 37);
+  position: relative;
+}
+
+.aaa{
+  height: 2rem;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* background-color: rgba(121, 22, 22, 0.489);
+   */
+   background-color: rgb(3, 0, 0);
+  z-index: 1;
+}
+
+nav{
+  /* ロゴとナビメニューを縦並びから横並びに */
+  display: flex;
+  /* 横並びにしたロゴとナビメニューを画面内両サイドに配置 */
+  /* justify-content: space-between; */
+  width: 100%;
+}
+
+nav ul {
+  /* ナビメニューそれぞれを横並びに */
+  display: flex;
+  width:100%;
+  gap: 1rem;
+  justify-content: flex-end;
+  z-index: 200;
+}
+
+nav ul li{
+  list-style-type: none;
+  z-index: 3;
+  writing-mode: vertical-lr;
+  max-width: 100%;
+  margin-right: 1.5rem;
+  margin-top: 5rem;
+}
+
+nav ul li a{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  font-family: "kokuryu", sans-serif;
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.main a::after{
+  position: absolute;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 0.2rem;
+  background-color: black;
+  visibility: hidden;
+}
+
+a:hover::after{
+  visibility: visible;
+}
+
+h1{
+  font-family: "kokuryu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 7rem;
+  text-align: center;
+  color: gold;
+  padding-bottom: 1rem;
+}
+
+
+.main{
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.main-img{
+  display: flex;
+  height: 43rem;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url(img/texture982401_TP_V.jpg);
+}
+
+.message{
+  width: 40%;
+  height: 30%;
+  position: absolute;
+  bottom: 20%;
+  left:0%;
+  padding-left: 1%;
+  padding-top: 2%;
+  background-color: rgb(172, 37, 37);
+  font-weight: bold;
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+  clip-path: polygon(0% 0%, 87% 0%, 83% 100%, 0% 100%) ;
+}
+
+.message p{
+  font-size: 1.2rem;
+}
+
+.container{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 70%;
+  height: 90vh;
+  object-fit: cover;
+  clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 3% 100%) ;
+}
+
+.container img {
+  position: absolute; /* 画像を重ねる */
+  opacity: 0; /* 最初は透明 */
+  transition: opacity 3s; /* 1秒かけてフェードイン */
+  width: 100%;
+  height: 100%;
+}
+      
+.container img.active {
+  opacity: 1; /* activeクラスがついたら不透明に */
+  height: 100%;
+  width: 100%;
+}
+
+.images{
+  object-fit: cover;
+}
+
+.noren-frame{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  z-index: 100;
+}
+
+.noren{
+  width: 100%;
+  height: 70%;
+  z-index: 100;
+}
+
+#osusume{
+  margin-top: 31.4rem;
+  width: 100%;
+}
+
+#osusume h2{
+  text-align: center;
+  font-size: 3rem;
+  color: gold;
+  padding: 2rem 0;
+}
+
+#osusume-container{
+  width: 80%;
+  height: 32rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#osusume-container img{
+  width: 80%;
+  height: 32rem;
+  object-fit: cover;
+  border-radius: 1%;
+}
+
+#osusume-img{
+  display: none;
+  padding-bottom: 1rem;
+  /* アニメーションの名前、進行のペース、アニメーションにかかる時間、アニメーション終了時の挙動 */
+  animation: ☆★ ease 3s forwards;
+  }
+  
+@keyframes ☆★{
+  0%{
+    opacity:0;
+    /*トランスフォームの形を変える。[translate]の部分を動かしたい形に合わせて変更 */
+  }
+  100%{
+    opacity:1;
+  }
+}
+
+#osusume-container p{
+  font-size: 2rem;
+}
+
+#menu{
+  margin-top: 5rem;
+  background-image: url(img/texture982401_TP_V.jpg);
+}
+
+#menu h2{
+  text-align: center;
+  font-size: 3rem;
+  color: gold;
+  padding: 2rem 0;
+}
+
+.menu ul{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.menu li{
+  font-size: 2rem;
+  padding: 0 2rem;
+  list-style-type: none;
+}
+
+.menu ul li a{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  font-family: "kokuryu", sans-serif;
+  font-size: 1.5rem;
+  position: relative;
+}
+
+#other{
+  display: block;
+  width: 80%;
+  height: 115rem;
+  margin: 0 auto;
+}
+
+#toriaezu{
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+.hoge{
+  position: relative;
+  width: 100%;
+}
+
+h3{
+  position: relative;
+  font-size: 2rem;
+}
+
+h3::after{
+  background-image: url(img/b_simple_113_0S.png);
+  background-repeat: no-repeat;
+  content: "";
+  position: absolute;
+  top:2.2rem;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+  object-fit: cover;
+}
+/* 写真にグラデーションをかけるには、写真に直接加工するのではなく、フィルターをかけるようなイメージ
+その「フィルター」をdivで作る必要がある。なのでグラデーションをつけたい写真をdivタグで囲む。
+::afterで疑似要素としてフィルターの条件を作っている */
+.grad{
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.grad::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: linear-gradient(270deg, #5d5757, transparent);
+}
+
+.grad img{
+  width: 100%;
+  height: auto;
+}
+
+.hoge ul{
+  position: absolute;
+  top:4.5rem;
+  left:0;
+  display: initial;
+  flex: none;
+}
+
+.hoge ul li{
+  font-size: 2rem;
+  list-style-type: none;
+  padding-top: 1rem;
+}
+
+#yakimono{
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin-top: 5rem;
+}
+
+#ippin{
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin-top: 5rem;
+}
+
+.hage{
+  font-size: 10rem;
+}
+
+#drink{
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin-top: 5rem;
+}
+
+#access{
+  width: 100%;
+  height: 40rem;
+}
+
+#access h2{
+  text-align: center;
+  font-size: 3rem;
+  color: gold;
+  padding: 2rem 0;
+}
+
+.bbb{
+  width: 100%;
+  height: 25rem;
+  position: relative;
+}
+
+.ccc{
+  max-width: 60%;
+  position: absolute;
+  left: 8rem;
+  top: 8rem;
+}
+
+.ccc p{
+  font-size: 1.5rem;
+  padding-top:1.5rem;
+}
+
+iframe{
+  max-width: 40%;
+  height: 30rem;
+  position: absolute;
+  right: 10rem;
+  top:0;
+}
+
+footer{
+  width: 95%;
+  height: 5rem;
+  margin: 0 auto;
+}
+
+.foo{
+  display: flex;
+  justify-content: space-between;
+}
+
+.foo ul{
+  margin-top: 2%;
+  margin-left: 25%;
+}
+
+.foo h2{
+  font-size: 5rem;
+  color: gold;
+  margin: 3rem 8rem 1rem 0;
+}
+
+.fadein{
+  /* opacity:0; */
+  transition: 2s;
+}
+
+.active{
+  opacity:1;
+}
+
