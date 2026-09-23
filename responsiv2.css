@@ -1,0 +1,628 @@
+/* ========================================
+   基本リセット・共通
+======================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+body {
+  font-family: "kokuryu", sans-serif;
+  background-color: rgb(172, 37, 37);
+  color: #111;
+  line-height: 1.6;
+}
+
+p {
+  font-size: 1rem;
+}
+
+/* ========================================
+   ヘッダー・ナビ
+======================================== */
+.aaa {
+  height: 2rem;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(3, 0, 0);
+  z-index: 1;
+}
+
+h1 {
+  font-family: "kokuryu", sans-serif;
+  font-weight: 400;
+  font-size: clamp(3.5rem, 12vw, 7rem);
+  text-align: center;
+  color: gold;
+  padding: 1.5rem 0 1rem;
+}
+
+nav {
+  width: 100%;
+  position: relative;
+  z-index: 200;
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  list-style: none;
+  padding: 0 1.5rem;
+}
+
+nav ul li {
+  writing-mode: vertical-lr;
+  margin-top: 3rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  font-size: 1.4rem;
+  position: relative;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0.15rem;
+  background-color: black;
+  visibility: hidden;
+  transition: visibility 0.2s;
+}
+
+nav ul li a:hover::after {
+  visibility: visible;
+}
+
+/* ========================================
+   メインビジュアル
+======================================== */
+.main {
+  position: relative;
+  width: 100%;
+}
+
+.main-img {
+  display: flex;
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  background-image: url(img/texture982401_TP_V.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.message {
+  width: 42%;
+  position: absolute;
+  bottom: 18%;
+  left: 0;
+  padding: 1.5rem 1rem 1.5rem 1.5rem;
+  background-color: rgb(172, 37, 37);
+  font-weight: bold;
+  clip-path: polygon(0% 0%, 87% 0%, 83% 100%, 0% 100%);
+  z-index: 10;
+}
+
+.message h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.message p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.container {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 68%;
+  height: 100%;
+  clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 3% 100%);
+  overflow: hidden;
+}
+
+.container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 3s;
+}
+
+.container img.active {
+  opacity: 1;
+}
+
+.noren-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45vh;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.noren {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* ========================================
+   本日のおすすめ
+======================================== */
+#osusume {
+  width: 100%;
+  padding: 3rem 0 4rem;
+}
+
+#osusume h2 {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: gold;
+  padding: 1.5rem 0 2rem;
+}
+
+#osusume-container {
+  width: min(90%, 900px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+#osusume-container img {
+  width: 100%;
+  max-height: 28rem;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1.2rem;
+}
+
+#osusume-img {
+  display: none;
+  animation: fadeIn 3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+#osusume-container p {
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  line-height: 1.7;
+}
+
+/* ========================================
+   メニュー
+======================================== */
+#menu {
+  background-image: url(img/texture982401_TP_V.jpg);
+  background-size: cover;
+  padding-bottom: 4rem;
+}
+
+#menu h2 {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: gold;
+  padding: 2rem 0;
+}
+
+.menu ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-bottom: 2.5rem;
+  list-style: none;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  font-size: 1.3rem;
+  position: relative;
+}
+
+.menu ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: black;
+  transform: scaleX(0);
+  transition: transform 0.25s;
+}
+
+.menu ul li a:hover::after {
+  transform: scaleX(1);
+}
+
+#other {
+  width: min(90%, 1000px);
+  margin: 0 auto;
+}
+
+#toriaezu,
+#yakimono,
+#ippin,
+#drink {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  align-items: flex-start;
+}
+
+.hoge {
+  flex: 1;
+  position: relative;
+}
+
+.hoge h3 {
+  font-size: 1.7rem;
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+
+.hoge h3::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 12px;
+  margin-top: 0.4rem;
+  background-image: url(img/b_simple_113_0S.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.hoge ul {
+  list-style: none;
+}
+
+.hoge ul li {
+  font-size: 1.25rem;
+  padding: 0.55rem 0;
+}
+
+.grad {
+  flex: 1;
+  position: relative;
+  max-width: 420px;
+}
+
+.grad::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(270deg, rgba(93, 87, 87, 0.7), transparent);
+  pointer-events: none;
+}
+
+.grad img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.fadein {
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+.fadein.active {
+  opacity: 1;
+}
+
+/* ========================================
+   アクセス
+======================================== */
+#access {
+  padding: 2rem 0 4rem;
+}
+
+#access h2 {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: gold;
+  padding: 1.5rem 0 2rem;
+}
+
+.bbb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: min(95%, 1100px);
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.ccc {
+  flex: 1;
+  min-width: 260px;
+}
+
+.ccc p {
+  font-size: 1.15rem;
+  padding: 0.6rem 0;
+}
+
+.bbb iframe {
+  flex: 1;
+  min-width: 280px;
+  width: 100%;
+  max-width: 480px;
+  height: 320px;
+  border: 0;
+  border-radius: 6px;
+}
+
+/* ========================================
+   フッター
+======================================== */
+footer.menu {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 1.5rem 0 2rem;
+}
+
+.foo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: min(95%, 1100px);
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.foo ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  list-style: none;
+}
+
+.foo ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.foo h2 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: gold;
+  margin: 0;
+}
+
+/* ========================================
+   タブレット（iPad） 768px〜1024px
+======================================== */
+@media (max-width: 1024px) {
+  nav ul li {
+    margin-top: 2rem;
+    margin-right: 1rem;
+  }
+
+  nav ul li a {
+    font-size: 1.25rem;
+  }
+
+  .main-img {
+    min-height: 60vh;
+  }
+
+  .message {
+    width: 48%;
+    bottom: 12%;
+    padding: 1.2rem;
+  }
+
+  .message h2 {
+    font-size: 1.5rem;
+  }
+
+  .message p {
+    font-size: 0.95rem;
+  }
+
+  .container {
+    width: 62%;
+  }
+
+  #toriaezu,
+  #yakimono,
+  #ippin,
+  #drink {
+    gap: 1.5rem;
+  }
+
+  .hoge ul li {
+    font-size: 1.15rem;
+  }
+
+  .bbb iframe {
+    height: 280px;
+  }
+}
+
+/* ========================================
+   モバイル（〜767px）
+======================================== */
+@media (max-width: 767px) {
+  .aaa {
+    height: 1.5rem;
+  }
+
+  h1 {
+    font-size: 3.2rem;
+    padding: 1rem 0 0.5rem;
+  }
+
+  /* ナビを横並びに変更 */
+  nav ul {
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    flex-wrap: wrap;
+  }
+
+  nav ul li {
+    writing-mode: horizontal-tb;
+    margin-top: 0;
+    margin-right: 0;
+  }
+
+  nav ul li a {
+    font-size: 1rem;
+  }
+
+  /* メインビジュアルを縦積み */
+  .main-img {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .message {
+    position: relative;
+    width: 100%;
+    bottom: auto;
+    left: auto;
+    clip-path: none;
+    padding: 1.5rem 1.2rem;
+    order: 2;
+  }
+
+  .message h2 {
+    font-size: 1.4rem;
+  }
+
+  .message p {
+    font-size: 0.95rem;
+  }
+
+  .container {
+    position: relative;
+    width: 100%;
+    height: 55vw;
+    min-height: 220px;
+    clip-path: none;
+    order: 1;
+  }
+
+  .noren-frame {
+    height: 28vw;
+    min-height: 120px;
+  }
+
+  /* おすすめ */
+  #osusume {
+    padding: 2rem 0 3rem;
+  }
+
+  #osusume-container {
+    width: 92%;
+  }
+
+  #osusume-container img {
+    max-height: 220px;
+  }
+
+  /* メニューを縦積み */
+  .menu ul {
+    gap: 0.8rem 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .menu ul li a {
+    font-size: 1.1rem;
+  }
+
+  #toriaezu,
+  #yakimono,
+  #ippin,
+  #drink {
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 3rem;
+  }
+
+  .grad {
+    max-width: 100%;
+  }
+
+  .hoge h3 {
+    font-size: 1.4rem;
+  }
+
+  .hoge ul li {
+    font-size: 1.05rem;
+    padding: 0.4rem 0;
+  }
+
+  /* アクセス */
+  .bbb {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .ccc {
+    min-width: 100%;
+  }
+
+  .ccc p {
+    font-size: 1rem;
+  }
+
+  .bbb iframe {
+    max-width: 100%;
+    height: 260px;
+  }
+
+  /* フッター */
+  .foo {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.2rem;
+  }
+
+  .foo ul {
+    justify-content: center;
+  }
+
+  .foo h2 {
+    font-size: 2.8rem;
+  }
+}
